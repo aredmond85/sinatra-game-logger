@@ -6,3 +6,5 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 
 use Rack::MethodOverride
 run ApplicationController
+#run GameController
+run UserController
