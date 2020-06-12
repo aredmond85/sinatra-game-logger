@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_010519) do
     t.string "title"
     t.string "console"
     t.string "status"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

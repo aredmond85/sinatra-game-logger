@@ -4,6 +4,7 @@ class CreateGame < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :console
       t.string :status
+      t.integer :user_id
     end
   end
 end
