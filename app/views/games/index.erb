@@ -1,10 +1,40 @@
+<%# <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style> %>
+
 <h1>Welcome to Index</h1>
 
-<p>Show current games</p>
-<a href="/games/show">Show</a>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Console</th>
+    <th>Status</th>
+  </tr>
+  <% @games.each do |game|%>
+  <tr>
+    <td><%= game.title %></td>
+    <td><%= game.console %></td>
+    <td><%= game.status %></td>
+  </tr>
+  <% end %>
+</table>
 
-<p>Click on the link below to add a new game to your log</p>
-<a href="/games/new">Add A Game</a>
+<br>
+<a href="/games/new"><input type="submit" name="add_game" value="Add Game" ></a>
 
 <form action="/logout" method="post">
   <br><input type="submit" name="logout" value="Log Out" >
