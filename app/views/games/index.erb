@@ -29,6 +29,7 @@ tr:nth-child(even) {
     <td><%= game.title %></td>
     <td><%= game.console %></td>
     <td><%= game.status %></td>
+    <td><a href="/games/<%= game.id %>/edit">Edit</a></td>
   </tr>
   <% end %>
 </table>
