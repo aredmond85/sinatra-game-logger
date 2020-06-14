@@ -1,11 +1,24 @@
 <h1>Welcome to Show</h1>
 
+<p>Title: <%= @game.title %></p>
+
+<p>Console: <%= @game.console %> </p>
+
+<p>Status: <%= @game.status %></p>
 
 <a href="/games"><input type="submit" name="back_home" value="Back To Home" ></a>
 
-<br><br>
-<a href="/games/new"><input type="submit" name="add_game" value="Add Game" ></a>
+<p>Does something look wrong with the game? You can edit it don't worry! <a href="/games/<%= @game.id %>/edit">Edit</a>
+</p>
 
-<form action="/logout" method="post">
-  <br><input type="submit" name="logout" value="Log Out" >
+<form action="/games/<%= @game.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="submit" value="Delete">
+</form>
+
+<br>
+
+<form action="/logout" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Logout" name="submit">
 </form>
