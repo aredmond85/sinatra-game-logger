@@ -1,9 +1,10 @@
 class GameController < ApplicationController
+  
 	get '/games' do
 		authenticate
 		if logged_in?
-			@games = current_user
-			@games = Game.all
+			@games = current_user.games
+			#@games = Game.all
 			erb :'/games/index'
 		else
 			redirect to '/login'
