@@ -22,10 +22,10 @@ class GameController < ApplicationController
 	post '/games' do
 		authenticate
 		if logged_in?
-			if params[:title] == "" || params[:console] == "" || params[:status] == ""
+			if params[:title] == "" || params[:console] == "" || params[:genre] == "" || params[:status] == ""
 				redirect to "/games/new"
 			else
-				@game = Game.create(title: params[:title], console: params[:console], status: params[:status])
+				@game = Game.create(title: params[:title], console: params[:console], genre: params[:genre], status: params[:status])
 				@game.user = current_user
 				if @game.save
 					redirect to "/games/#{@game.id}"
@@ -56,13 +56,14 @@ class GameController < ApplicationController
   
 	patch '/games/:id' do
 		authenticate
-		if params[:title] == "" || params[:console] == "" || params[:status] == ""
+		if params[:title] == "" || params[:console] == "" || params[:genre] == "" || params[:status] == ""
 			@error = "Looks like something is wrong, try to fill out all the fields."
 			erb :'/games/edit'
     	end
 			@game = Game.find_by(id: params[:id])
 			@game.title = params[:title]
 			@game.console = params[:console]
+			@game.genre = params[:console]
 			@game.status = params[:status]
 			@game.save
 			redirect "/games/#{@game.id}"

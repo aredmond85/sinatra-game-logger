@@ -8,7 +8,7 @@ class UserController < ApplicationController
         if params[:username] == "" || params[:password] == ""
             redirect to '/signup'
           else
-            @user = User.new(:username => params[:username], :password => params[:password])
+            @user = User.new(:username => params[:username], :first_name => params[:first_name], :last_name => params[:last_name], :password => params[:password])
             @user.save
             session[:user_id] = @user.id
             redirect to '/games'

@@ -1,4 +1,5 @@
-<h1>Welcome to New</h1>
+<h3>Enter in a video game into Game Logger!</h3>
+<p>Please put in a game you would like to start tracking</p>
 
 <form action="/games" method="post">
 
@@ -6,21 +7,52 @@
   <tr>
     <th>Title</th>
     <th>Console</th>
+    <th>Genre</th>
     <th>Status</th>
   </tr>
   <tr>
-    <td><input type="text" name="title" placeholder="title"></td>
-    <td><input type="text" name="console" placeholder="console"></td>
-    <td><input type="text" name="status" placeholder="status"></td>
+    <td><input type="text" name="title" placeholder="Game Title"></td>
+    <td>
+      <select name="console" id="console">
+          <option value="PS4">PS4</option>
+          <option value="PS3">PS3</option>
+          <option value="Xbox One">Xbox One</option>
+          <option value="Switch">Switch</option>
+          <option value="3DS">3DS</option>
+         <option value="PC">PC</option>
+        </select>
+    </td>
+    <td>
+      <select name="status" id="status">
+        <option value="Playing">Playing</option>
+        <option value="Backlog">Backlog</option>
+        <option value="Completed">Completed</option>
+        <option value="Unreleased">Unreleased</option>
+      </select>
+    </td>
+    <td>
+      <select name="genre" id="genre">
+        <option value="RPG">RPG</option>
+        <option value="FPS">FPS</option>
+        <option value="Action/Adventure">Action/Adventure</option>
+        <option value="Puzzle">Puzzle</option>
+        <option value="Platformer">Platformer</option>
+      </select>
+    </td>
+    <td><input type="submit" value="Create"></td>
   </tr>
 </table>
-<br>
-    <input type="submit" value="Create">
 </form>
 
 <br>
-<a href="/games"><input type="submit" name="back_home" value="Back To Home" ></a>
 
-<form action="/logout" method="post">
-  <br><input type="submit" name="logout" value="Log Out" >
-</form>
+<table>
+  <tr>
+    <td><a href="/games"><input type="submit" name="jome" value="Home" ></a></td>
+    <td><form action="/logout" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Logout" name="submit">
+      </form>
+    </td>
+  </tr>
+</table>

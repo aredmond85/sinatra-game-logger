@@ -1,24 +1,35 @@
-<h1>Welcome to Show</h1>
+<h3>You just created/updated - <%=@game.title%></h3>
 
-<p>Title: <%= @game.title %></p>
-
-<p>Console: <%= @game.console %> </p>
-
-<p>Status: <%= @game.status %></p>
-
-<a href="/games"><input type="submit" name="back_home" value="Back To Home" ></a>
-
-<p>Does something look wrong with the game? You can edit it don't worry! <a href="/games/<%= @game.id %>/edit">Edit</a>
-</p>
-
-<form action="/games/<%= @game.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" name="submit" value="Delete">
-</form>
+<table id="game_table">
+  <tr>
+    <th>Title</th>
+    <th>Console</th>
+    <th>Genre</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td><%= @game.title %></td> 
+    <td><%= @game.console %></td>
+    <td><%= @game.genre %></td>
+    <td><%= @game.status %></td>
+  </tr>
+</table>
 
 <br>
 
-<form action="/logout" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Logout" name="submit">
-</form>
+<table>
+  <tr>
+    <td><a href="/games"><input type="submit" name="home" value="Home" ></a></td>
+    <td><a href="/games/<%= @game.id %>/edit"><input type="submit" name="edit" value="Edit"></a></td>
+    <td><form action="/games/<%= @game.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" name="submit" value="Delete">
+      </form>
+    </td>
+    <td><form action="/logout" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Logout" name="submit">
+      </form>
+    </td>
+  </tr>
+</table>
