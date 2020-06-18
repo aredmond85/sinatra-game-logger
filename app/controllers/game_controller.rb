@@ -44,6 +44,7 @@ class GameController < ApplicationController
   	end 
   
 	get '/games/:id' do #loads show.erb to show game details
+		authenticate
 		@game = Game.find_by(id: params[:id])
 		erb :'games/show'
   	end
@@ -72,6 +73,7 @@ class GameController < ApplicationController
 	delete '/games/:id' do
 		authenticate
 		@game = Game.find_by(id: params[:id])
+		authorize(@game)
 		@game.delete
 		redirect "/games"
 	end

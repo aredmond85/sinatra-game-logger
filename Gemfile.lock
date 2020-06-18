@@ -76,6 +76,7 @@ DEPENDENCIES
   activerecord (~> 6.0.0)
   bcrypt
   pry
+  rack-flash3
   rake
   require_all
   shotgun
