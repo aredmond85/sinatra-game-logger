@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
           redirect '/login' if !logged_in?
       end 
 
-      def authorize(game)
+      def authorize_user(game)
           authenticate
           redirect '/games' if game.user != current_user
       end
