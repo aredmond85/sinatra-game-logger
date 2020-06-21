@@ -65,7 +65,7 @@ class GameController < ApplicationController
 			@game = Game.find_by(id: params[:id])
 			@game.title = params[:title]
 			@game.console = params[:console]
-			@game.genre = params[:console]
+			@game.genre = params[:genre]
 			@game.status = params[:status]
 			@game.save
 			redirect "/games/#{@game.id}"
