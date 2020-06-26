@@ -75,4 +75,11 @@ class GameController < ApplicationController
 		@game.delete
 		redirect "/games"
 	end
+
+	get '/games_all' do
+		@games = Game.all
+		@games
+		erb :'/games/games_all'
+	end
+
 end

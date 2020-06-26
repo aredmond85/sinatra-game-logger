@@ -1,0 +1,28 @@
+<table id="game_table">
+  <tr>
+    <th>Title</th>
+    <th>Console</th>
+    <th>Genre</th>
+    <th>Status</th>
+  </tr>
+  <% @games.each do |game|%>
+  <tr>
+    <td><%= game.title %> - <a href="/games/<%= game.id %>/edit"><input type="submit" name="edit" value="Edit"></td> 
+    <td><%= game.console %></td>
+    <td><%= game.genre %></td>
+    <td><%= game.status %></td>
+  </tr>
+  <% end %>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <td><a href="/games/new"><input type="submit" name="add_game" value="Add Game" ></a></td>
+    <td><form action="/logout" method="post">
+      <input type="submit" name="logout" value="Log Out" >
+      </form>
+    </td>
+  </tr>
+</table>
