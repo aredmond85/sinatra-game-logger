@@ -23,7 +23,6 @@ class GameController < ApplicationController
 		authenticate
 		if logged_in?
 			if params[:title] == "" || params[:console] == "" || params[:genre] == "" || params[:status] == ""
-				@error = "Looks like something is wrong, try to fill out all the fields."
 				redirect to "/games/new"
 			else
 				@game = Game.create(title: params[:title], console: params[:console], genre: params[:genre], status: params[:status])
@@ -59,7 +58,6 @@ class GameController < ApplicationController
 	patch '/games/:id' do
 		authenticate
 		if params[:title] == "" || params[:console] == "" || params[:genre] == "" || params[:status] == ""
-			@error = "Looks like something is wrong, try to fill out all the fields."
 			erb :'/games/edit'
     	end
 			@game = Game.find_by(id: params[:id])
